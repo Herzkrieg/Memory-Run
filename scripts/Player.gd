@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var horizontal_limit: float = 4.0
 @export var gravity: float = 35.0
 @export var touch_sensitivity: float = 3.0
+@export var jump_impulse: float = 14.0
 
 var _touch_active := false
 var _touch_last_x: float = 0.0
@@ -62,3 +63,6 @@ func _roll_visual(delta: float) -> void:
 		return
 
 	_ball_mesh.rotate_x(-forward_speed * delta)
+
+func trigger_jump(force: float = jump_impulse) -> void:
+	velocity.y = max(velocity.y, force)

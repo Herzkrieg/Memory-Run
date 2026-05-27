@@ -6,6 +6,7 @@ Godot endless 3D mobile runner prototype inspired by swipe lane games.
 - Rolling ball player in a 3D world
 - Dynamic finger-drag horizontal control (plus keyboard left/right fallback)
 - Infinite level generation using random, editable cube-based segment templates
+- Random jump cubes that launch the player upward on contact
 
 ## Run
 1. Open the project in Godot 4.x
