@@ -1,19 +1,27 @@
 extends Node3D
 
 @export var player_path: NodePath
-@export var lane_width: float = 4.0
-@export var cube_size: float = 2.0
-@export var segment_length: int = 12
+@export var segment_library_path: NodePath
+@export var segment_world_length: float = 24.0
 @export var visible_segments_ahead: int = 8
 @export var keep_segments_behind: int = 2
 
 var _player: Node3D
 var _next_segment_index: int = 0
 var _spawned_segments: Array[Node3D] = []
+var _segment_templates: Array[Node3D] = []
 
 func _ready() -> void:
 randomize()
 _player = get_node_or_null(player_path) as Node3D
+
+var segment_library := get_node_or_null(segment_library_path)
+if segment_library != null:
+for child in segment_library.get_children():
+if child is Node3D:
+_segment_templates.append((child as Node3D).duplicate())
+segment_library.queue_free()
+
 for i in range(visible_segments_ahead):
 _spawn_segment(i)
 
@@ -29,43 +37,17 @@ _spawn_segment(_next_segment_index)
 _prune_old_segments(traveled_segments)
 
 func _spawn_segment(segment_index: int) -> void:
-var segment := Node3D.new()
+if _segment_templates.is_empty():
+return
+
+var template := _segment_templates[randi() % _segment_templates.size()]
+var segment := template.duplicate() as Node3D
 segment.name = "Segment_%d" % segment_index
+segment.position.z = -segment_index * _segment_world_length()
 add_child(segment)
 _spawned_segments.append(segment)
 
-var z_start: float = -segment_index * _segment_world_length()
-for z_step in range(segment_length):
-var hole_lane: int = _pick_hole_lane()
-for lane in range(-1, 2):
-if lane == hole_lane:
-continue
-_spawn_cube(segment, lane, z_start - (z_step * cube_size))
-
 _next_segment_index = segment_index + 1
-
-func _spawn_cube(parent: Node3D, lane: int, z_pos: float) -> void:
-var body := StaticBody3D.new()
-body.position = Vector3(lane * lane_width, -0.5, z_pos)
-parent.add_child(body)
-
-var shape := CollisionShape3D.new()
-var box_shape := BoxShape3D.new()
-box_shape.size = Vector3(cube_size, 1.0, cube_size)
-shape.shape = box_shape
-body.add_child(shape)
-
-var mesh := MeshInstance3D.new()
-var box_mesh := BoxMesh.new()
-box_mesh.size = Vector3(cube_size, 1.0, cube_size)
-mesh.mesh = box_mesh
-mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-body.add_child(mesh)
-
-func _pick_hole_lane() -> int:
-if randf() < 0.75:
-return 2
-return randi_range(-1, 1)
 
 func _prune_old_segments(player_segment: int) -> void:
 while not _spawned_segments.is_empty():
@@ -77,4 +59,4 @@ _spawned_segments.pop_front()
 first_segment.queue_free()
 
 func _segment_world_length() -> float:
-return segment_length * cube_size
+return segment_world_length

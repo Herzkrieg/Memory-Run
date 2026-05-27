@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
@@ -10,6 +10,12 @@ height = 2.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1"]
 radius = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_2"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2"]
+size = Vector3(2, 1, 2)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1")
@@ -37,3 +43,341 @@ mesh = SubResource("SphereMesh_1")
 [node name="LevelGenerator" type="Node3D" parent="."]
 script = ExtResource("3")
 player_path = NodePath("../Player")
+segment_library_path = NodePath("../SegmentLibrary")
+segment_world_length = 12.0
+
+[node name="SegmentLibrary" type="Node3D" parent="."]
+
+[node name="Segment_CenterGap" type="Node3D" parent="SegmentLibrary"]
+
+[node name="Segment_CenterGap_Cube_0" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(-4.0, -0.5, 0.0)
+
+[node name="CollisionShape3D_0" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_0"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_0" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_0"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_1" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(4.0, -0.5, 0.0)
+
+[node name="CollisionShape3D_1" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_1"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_1" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_1"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_2" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(-4.0, -0.5, -2.0)
+
+[node name="CollisionShape3D_2" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_2"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_2"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_3" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(4.0, -0.5, -2.0)
+
+[node name="CollisionShape3D_3" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_3"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_3" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_3"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_4" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(-4.0, -0.5, -4.0)
+
+[node name="CollisionShape3D_4" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_4"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_4" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_4"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_5" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(4.0, -0.5, -4.0)
+
+[node name="CollisionShape3D_5" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_5"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_5" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_5"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_6" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(-4.0, -0.5, -6.0)
+
+[node name="CollisionShape3D_6" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_6"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_6" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_6"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_7" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(4.0, -0.5, -6.0)
+
+[node name="CollisionShape3D_7" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_7"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_7" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_7"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_8" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(-4.0, -0.5, -8.0)
+
+[node name="CollisionShape3D_8" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_8"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_8" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_8"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_9" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(4.0, -0.5, -8.0)
+
+[node name="CollisionShape3D_9" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_9"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_9" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_9"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_10" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(-4.0, -0.5, -10.0)
+
+[node name="CollisionShape3D_10" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_10"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_10" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_10"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_CenterGap_Cube_11" type="StaticBody3D" parent="SegmentLibrary/Segment_CenterGap"]
+position = Vector3(4.0, -0.5, -10.0)
+
+[node name="CollisionShape3D_11" type="CollisionShape3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_11"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_11" type="MeshInstance3D" parent="SegmentLibrary/Segment_CenterGap/Segment_CenterGap_Cube_11"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+
+[node name="Segment_LeftGap" type="Node3D" parent="SegmentLibrary"]
+
+[node name="Segment_LeftGap_Cube_0" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(0.0, -0.5, 0.0)
+
+[node name="CollisionShape3D_0" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_0"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_0" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_0"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_1" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(4.0, -0.5, 0.0)
+
+[node name="CollisionShape3D_1" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_1"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_1" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_1"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_2" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(0.0, -0.5, -2.0)
+
+[node name="CollisionShape3D_2" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_2"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_2"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_3" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(4.0, -0.5, -2.0)
+
+[node name="CollisionShape3D_3" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_3"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_3" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_3"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_4" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(0.0, -0.5, -4.0)
+
+[node name="CollisionShape3D_4" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_4"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_4" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_4"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_5" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(4.0, -0.5, -4.0)
+
+[node name="CollisionShape3D_5" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_5"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_5" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_5"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_6" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(0.0, -0.5, -6.0)
+
+[node name="CollisionShape3D_6" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_6"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_6" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_6"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_7" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(4.0, -0.5, -6.0)
+
+[node name="CollisionShape3D_7" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_7"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_7" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_7"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_8" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(0.0, -0.5, -8.0)
+
+[node name="CollisionShape3D_8" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_8"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_8" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_8"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_9" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(4.0, -0.5, -8.0)
+
+[node name="CollisionShape3D_9" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_9"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_9" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_9"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_10" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(0.0, -0.5, -10.0)
+
+[node name="CollisionShape3D_10" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_10"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_10" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_10"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_LeftGap_Cube_11" type="StaticBody3D" parent="SegmentLibrary/Segment_LeftGap"]
+position = Vector3(4.0, -0.5, -10.0)
+
+[node name="CollisionShape3D_11" type="CollisionShape3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_11"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_11" type="MeshInstance3D" parent="SegmentLibrary/Segment_LeftGap/Segment_LeftGap_Cube_11"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+
+[node name="Segment_RightGap" type="Node3D" parent="SegmentLibrary"]
+
+[node name="Segment_RightGap_Cube_0" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(-4.0, -0.5, 0.0)
+
+[node name="CollisionShape3D_0" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_0"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_0" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_0"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_1" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(0.0, -0.5, 0.0)
+
+[node name="CollisionShape3D_1" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_1"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_1" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_1"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_2" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(-4.0, -0.5, -2.0)
+
+[node name="CollisionShape3D_2" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_2"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_2"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_3" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(0.0, -0.5, -2.0)
+
+[node name="CollisionShape3D_3" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_3"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_3" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_3"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_4" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(-4.0, -0.5, -4.0)
+
+[node name="CollisionShape3D_4" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_4"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_4" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_4"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_5" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(0.0, -0.5, -4.0)
+
+[node name="CollisionShape3D_5" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_5"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_5" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_5"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_6" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(-4.0, -0.5, -6.0)
+
+[node name="CollisionShape3D_6" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_6"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_6" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_6"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_7" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(0.0, -0.5, -6.0)
+
+[node name="CollisionShape3D_7" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_7"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_7" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_7"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_8" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(-4.0, -0.5, -8.0)
+
+[node name="CollisionShape3D_8" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_8"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_8" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_8"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_9" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(0.0, -0.5, -8.0)
+
+[node name="CollisionShape3D_9" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_9"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_9" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_9"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_10" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(-4.0, -0.5, -10.0)
+
+[node name="CollisionShape3D_10" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_10"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_10" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_10"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+[node name="Segment_RightGap_Cube_11" type="StaticBody3D" parent="SegmentLibrary/Segment_RightGap"]
+position = Vector3(0.0, -0.5, -10.0)
+
+[node name="CollisionShape3D_11" type="CollisionShape3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_11"]
+shape = SubResource("BoxShape3D_2")
+
+[node name="MeshInstance3D_11" type="MeshInstance3D" parent="SegmentLibrary/Segment_RightGap/Segment_RightGap_Cube_11"]
+mesh = SubResource("BoxMesh_2")
+cast_shadow = 0
+
