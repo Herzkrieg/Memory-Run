@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/LevelGenerator.gd" id="3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1"]
+radius = 1.0
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+position = Vector3(0, 10, 10)
+rotation = Vector3(-0.8, 0, 0)
+light_energy = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 8, 14)
+near = 0.1
+far = 400.0
+
+[node name="Player" type="CharacterBody3D" parent="."]
+position = Vector3(0, 2, 0)
+script = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("SphereShape3D_1")
+
+[node name="BallMesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("SphereMesh_1")
+
+[node name="LevelGenerator" type="Node3D" parent="."]
+script = ExtResource("3")
+player_path = NodePath("../Player")
